@@ -17,25 +17,23 @@ app.use(session({
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-var data =
+var projects =
     [
         {
-            "name": "photo 1",
+            "name": "project 1",
             "link": "http://i.imgur.com/VNPJTra.png",
             "desc": "Skateboard kitsch celiac helvetica.Stumptown portland kogi,narwhal farm-to-table readymade",
             "id" : "1"
-
-
         },
         {
-            "name": "photo 2",
+            "name": "project 2",
             link: "http://i.imgur.com/DMHlsYN.png",
             "desc": "Skateboard kitsch celiac helvetica.Stumptown portland kogi,narwhal farm-to-table readymade",
             "id" : "2"
 
         },
         {
-            "name": "photo 3",
+            "name": "project 3",
             "link": "http://i.imgur.com/PmDQ1lh.png",
             "desc": "Skateboard kitsch celiac helvetica.Stumptown portland kogi,narwhal farm-to-table readymade",
             "id" : "3"
@@ -43,66 +41,39 @@ var data =
 
         },
         {
-            "name": "photo 4",
+            "name": "project 4",
             "link": "http://i.imgur.com/2h4dfvG.png",
             "desc": "Skateboard kitsch celiac helvetica.Stumptown portland kogi,narwhal farm-to-table readymade",
             "id" : "4"
 
-        },
-        {
-            "name": "photo 5",
-            "link": "http://i.imgur.com/x2MUWCM.png",
-            "desc": "Skateboard kitsch celiac helvetica.Stumptown portland kogi,narwhal farm-to-table readymade",
-            "id" : "5"
-
-        },
-        {
-            "name": "photo 6",
-            "link": "http://i.imgur.com/Btd7Mqi.png",
-            "desc": "Skateboard kitsch celiac helvetica.Stumptown portland kogi,narwhal farm-to-table readymade",
-            "id" : "6"
-
-        },
-        {
-            "name": "photo 7",
-            "link": "http://i.imgur.com/8oICT1B.png",
-            "desc": "Skateboard kitsch celiac helvetica.Stumptown portland kogi,narwhal farm-to-table readymade",
-            "id" : "7"
-
-        },
-        {
-            "name": "photo 8",
-            "link": "http://i.imgur.com/24XSc6v.png",
-            "desc": "Skateboard kitsch celiac helvetica.Stumptown portland kogi,narwhal farm-to-table readymade",
-            "id" : "8"
-
         }
-
     ];
 
-var myinfo = [
+var myinfo =
     {
         name : "Sienna Belle",
         intro: "Lorem ipsum dolor sit amet,consectetur adipiscing elit.Lorem ipsum dolor sit amet,consectetur adipiscing elit.dolor sit amet,consectetur.Lorem ipsum dolor sit amet,consectetur adipiscing elit. ",
         mainImage: "https://hd.unsplash.com/photo-1470713810641-8136c29329b4",
-        email: "siennabelle@"
+        email: "siennabelle@email.com",
+        phone: "5555555555",
+        profileImg:"http://i.imgur.com/2h4dfvG.png"
 
-    }
+    };
 
-];
+
 
 function findUser(array, value) {
     var index = array.map(function(arr) {
         return arr.id;
     }).indexOf(value);
     return array[index];
-
 }
 
 
-app.get('/api/blogData', function(req, res) {
-    res.send(data);
+app.get('/api/myData', function(req, res) {
+    res.send(myinfo);
 });
+
 
 app.get('/api/userInfo/:id', function(req, res) {
     var userId = req.params.id;

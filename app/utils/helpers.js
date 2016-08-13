@@ -22,8 +22,8 @@ export function getUserInfo (id) {
 
 }
 
-export function  usersBlogData () {
-    return axios.get(`http://localhost:8080/api/usersBlogData`)
+export function  getMyData () {
+    return axios.get(`http://localhost:8080/api/myData`)
         .then(function (data) {
             return data;
         })

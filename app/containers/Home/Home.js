@@ -2,14 +2,14 @@ import React from 'react';
 import { Router, Route, Link, browserHistory } from 'react-router';
 import Nav from '../../components/Nav/Nav';
 import Jumbo from '../../components/Jumbo/Jumbo';
-import {usersBlogData} from '../../utils/helpers';
+import {getMyData} from '../../utils/helpers';
 
 
 class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            blogData:[]
+            myinfo:{}
         }
     }
 
@@ -18,9 +18,10 @@ class Home extends React.Component {
     }
 
     init(){
-        usersBlogData().then(function(data){
+        getMyData().then(function(data){
+            console.log(data.data)
             this.setState({
-                blogData: data.data
+                myinfo: data.data
             })
         }.bind(this));
     }
