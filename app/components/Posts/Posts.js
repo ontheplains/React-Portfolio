@@ -7,10 +7,10 @@ const Posts = ({posts}) => {
               return (
                   //The Key here should be a id from our database
                   <div className="list-group-item" key={index}>
+                     <img src={data.link} alt=""/>
                      <h1>{data.name}</h1>
-                      <p>{data.post}</p>
-                      <p>{data.likeCount}</p>
-
+                      <p>{data.link}</p>
+                      <p>{data.desc}</p>
                   </div>
               )
           })}

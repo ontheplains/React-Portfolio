@@ -1,25 +1,35 @@
 import React from 'react';
+import { Router, Route, Link, browserHistory } from 'react-router';
 import Nav from '../../components/Nav/Nav';
 import Jumbo from '../../components/Jumbo/Jumbo';
+import {usersBlogData} from '../../utils/helpers';
+
 
 class Home extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            user: {
-                id:89323,
-                name:"Sally Rally",
-                date: "today",
-                desc:"awesome prop"
-            }
+            blogData:[]
         }
     }
 
-    render(){
+    componentDidMount(){
+        this.init()
+    }
+
+    init(){
+        usersBlogData().then(function(data){
+            this.setState({
+                blogData: data.data
+            })
+        }.bind(this));
+    }
+
+    render() {
         return (
-            <div>
-                <Nav user={this.state.user} />
-                <Jumbo />
+            <div className="container">
+                <Nav  />
+                <Jumbo myinfo={this.state.myinfo} />
             </div>
         )
     }

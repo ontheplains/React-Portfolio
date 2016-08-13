@@ -6,6 +6,7 @@ const Nav = ({user}) => {
         <nav className="navbar navbar-default navbar-fixed-top">
             <div className="container">
                 <Link to={'/profile'}>Profile</Link>
+                <Link to={'/'}>Home</Link>
             </div>
         </nav>
     )
