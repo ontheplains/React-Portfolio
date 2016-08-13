@@ -62,28 +62,26 @@ var myinfo =
 
 
 
-function findUser(array, value) {
+function findProject(array, value) {
     var index = array.map(function(arr) {
         return arr.id;
     }).indexOf(value);
     return array[index];
 }
 
-
 app.get('/api/myData', function(req, res) {
     res.send(myinfo);
 });
 
-
-app.get('/api/userInfo/:id', function(req, res) {
-    var userId = req.params.id;
-    var userObj = findUser(usersBlogData, userId);
-    res.send(userObj);
+app.get('/api/projectInfo/:id', function(req, res) {
+    var projectId = req.params.id;
+    var projectObj = findProject(projects, projectId);
+    res.send(projectObj);
 
 });
 
-app.get('/api/usersBlogData', function(req, res) {
-    res.send(usersBlogData);
+app.get('/api/projectData', function(req, res) {
+    res.send(projects);
 });
 
 

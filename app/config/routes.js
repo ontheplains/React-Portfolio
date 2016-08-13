@@ -1,6 +1,6 @@
 import React from 'react';
 import Home from '../containers/Home/Home';
-import Profile from '../containers/Profile/Profile';
+import ProjectDetails from '../containers/Project-Detail/Project-Detail';
 
 
 import {Router, Route, IndexRoute, hashHistory} from 'react-router';
@@ -10,6 +10,6 @@ export default (
         <Route path="/" component={Home}>
             <IndexRoute component={Home}></IndexRoute>
         </Route>
-        <Route path="profile" component={Profile}></Route>
+        <Route path="projects/:projectId" component={ProjectDetails}></Route>
     </Router>
 );

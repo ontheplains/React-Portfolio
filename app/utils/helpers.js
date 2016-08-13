@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-export function getPosts (){
-    return axios.get(`http://localhost:8080/api/blogData`)
+export function getMyProjects (){
+    return axios.get(`http://localhost:8080/api/projectData`)
         .then(function (data) {
             return data;
         })
@@ -11,8 +11,8 @@ export function getPosts (){
 
 }
 
-export function getUserInfo (id) {
-    return axios.get(`http://localhost:8080/api/userInfo/${id}`)
+export function getProjectInfo (id) {
+    return axios.get(`http://localhost:8080/api/projectInfo/${id}`)
         .then(function (data) {
             return data;
         })

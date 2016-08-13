@@ -2,14 +2,16 @@ import React from 'react';
 import { Router, Route, Link, browserHistory } from 'react-router';
 import Nav from '../../components/Nav/Nav';
 import Jumbo from '../../components/Jumbo/Jumbo';
-import {getMyData} from '../../utils/helpers';
+import Projects from '../../components/Projects/Projects';
+import {getMyData, getMyProjects} from '../../utils/helpers';
 
 
 class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            myinfo:{}
+            myinfo:{},
+            projectData:[]
         }
     }
 
@@ -19,9 +21,14 @@ class Home extends React.Component {
 
     init(){
         getMyData().then(function(data){
-            console.log(data.data)
             this.setState({
                 myinfo: data.data
+            })
+        }.bind(this));
+
+        getMyProjects().then(function(data){
+            this.setState({
+                projectData: data.data
             })
         }.bind(this));
     }
@@ -31,6 +38,7 @@ class Home extends React.Component {
             <div className="container">
                 <Nav  />
                 <Jumbo myinfo={this.state.myinfo} />
+                <Projects projectData={this.state.projectData}/>
             </div>
         )
     }
