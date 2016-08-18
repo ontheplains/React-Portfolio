@@ -1,1 +1,1 @@
-# react-day-3
+Sample portfolio piece for React
